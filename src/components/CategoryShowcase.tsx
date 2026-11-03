@@ -164,3 +164,4 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
     </section>
   );
 };
+

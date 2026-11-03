@@ -79,3 +79,4 @@ export const TopTicker: React.FC = () => {
     </div>
   );
 };
+

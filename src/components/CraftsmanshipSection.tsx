@@ -113,3 +113,4 @@ export const CraftsmanshipSection: React.FC<{ onExploreClick: () => void }> = ({
     </section>
   );
 };
+

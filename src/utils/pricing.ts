@@ -137,3 +137,4 @@ _Please book an appointment with a Senior Bridal Consultant._`;
 
   return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
 }
+

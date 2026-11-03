@@ -418,3 +418,4 @@ export const CatalogSection: React.FC = () => {
     </section>
   );
 };
+

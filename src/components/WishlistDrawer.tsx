@@ -193,3 +193,4 @@ export const WishlistDrawer: React.FC = () => {
     </div>
   );
 };
+

@@ -250,3 +250,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     </header>
   );
 };
+

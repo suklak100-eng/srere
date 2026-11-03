@@ -308,3 +308,4 @@ export const MagnifierModal: React.FC<MagnifierModalProps> = ({ onBookViewingCli
     </div>
   );
 };
+

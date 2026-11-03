@@ -56,3 +56,4 @@ export interface ShowroomSettings {
   huidCenterId: string;
   adminPin: string;
 }
+

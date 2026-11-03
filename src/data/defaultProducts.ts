@@ -200,3 +200,4 @@ export const DEFAULT_PRODUCTS: JewelryItem[] = [
     huid: 'AU-999-00192-MMTC'
   }
 ];
+
