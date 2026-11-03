@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #FAF6F0;
+  color: #1A1612;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-royal {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* 1. Liquid Gold Shimmer Text & Luxury Buttons */
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gold-foil-text {
+  background: linear-gradient(90deg, #C59B27, #FFF3B0, #D4AF37, #FFF6C5, #AA771C);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s ease infinite;
+}
+.btn-luxury-gold {
+  background: linear-gradient(135deg, #B38728 0%, #FBF5B7 50%, #9A6F1A 100%);
+  background-size: 200% auto;
+  color: #041A15;
+  font-weight: 700;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.45);
+}
+.btn-luxury-gold:hover {
+  background-position: right center;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 35px -5px rgba(212, 175, 55, 0.75);
+}
+
+/* 2. Infinite Scrolling Ticker for Live Gold Rate */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* 3. Floating 3D Hero Arch & Rotating Halo Ring */
+@keyframes floatLuxury {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes spinHalo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.hero-float {
+  animation: floatLuxury 5s ease-in-out infinite;
+}
+.halo-ring {
+  animation: spinHalo 35s linear infinite;
+}
+
+/* 4. Product Card Diagonal Light Glint Sweep + Zoom + Lift on Hover */
+.jewelry-card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.jewelry-card:hover {
+  transform: translateY(-10px);
+  border-color: #D4AF37;
+  box-shadow: 0 25px 50px -12px rgba(180, 135, 40, 0.28);
+}
+.jewelry-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.jewelry-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255, 245, 190, 0.6) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+.jewelry-card:hover .jewelry-card-img-wrap::after {
+  left: 140%;
+}
+.jewelry-card-img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.jewelry-card:hover .jewelry-card-img {
+  transform: scale(1.12);
+}
+
+/* 5. Slide-up Quick Action Drawer inside Card on Hover */
+.card-hover-drawer {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.jewelry-card:hover .card-hover-drawer {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* Additional Luxury Utilities */
+.hero-radial-spotlight {
+  background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.22) 0%, rgba(4, 26, 21, 0.98) 75%);
+}
+
+.luxury-gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.32);
+}
+
+.luxury-gold-gradient-border {
+  border: 1px solid transparent;
+  background: linear-gradient(#041A15, #041A15) padding-box,
+              linear-gradient(135deg, #9A7432 0%, #D4AF37 35%, #FFF3B0 50%, #C59B27 75%, #8A6421 100%) border-box;
+}
+
+.glass-panel-dark {
+  background: rgba(4, 26, 21, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.gold-badge {
+  background: linear-gradient(135deg, #9A7432 0%, #D4AF37 30%, #FFF3B0 50%, #C59B27 75%, #8A6421 100%);
+  color: #041A15;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(4, 26, 21, 0.1);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
