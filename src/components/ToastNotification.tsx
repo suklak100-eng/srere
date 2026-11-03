@@ -14,32 +14,32 @@ export const ToastNotification: React.FC = () => {
           key={toast.id}
           className={`pointer-events-auto transform transition-all duration-300 ease-out translate-y-0 opacity-100 flex items-start gap-3 p-4 rounded-xl shadow-2xl border backdrop-blur-xl ${
             toast.type === 'gold'
-              ? 'bg-[#041A15]/95 border-[#D4AF37] text-white shadow-[0_10px_30px_rgba(212,175,55,0.3)]'
+              ? 'bg-[#08090A]/95 border-[#C5A880] text-white shadow-[0_10px_30px_rgba(197,168,128,0.25)]'
               : toast.type === 'success'
-              ? 'bg-[#07261F]/95 border-emerald-500 text-white shadow-[0_10px_30px_rgba(16,185,129,0.25)]'
-              : 'bg-[#1A1612]/95 border-[#D4AF37]/40 text-white'
+              ? 'bg-[#0D0E11]/95 border-emerald-500 text-white shadow-[0_10px_30px_rgba(16,185,129,0.25)]'
+              : 'bg-[#14171A]/95 border-[#C5A880]/40 text-white'
           }`}
         >
           <div className="mt-0.5 flex-shrink-0">
             {toast.type === 'gold' ? (
-              <div className="p-1.5 rounded-full bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40">
-                <Sparkles className="w-5 h-5 animate-pulse" />
+              <div className="p-1.5 rounded-full bg-[#C5A880]/15 text-[#C5A880] border border-[#C5A880]/40">
+                <Sparkles className="w-4 h-4 animate-pulse" />
               </div>
             ) : toast.type === 'success' ? (
-              <div className="p-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
-                <CheckCircle2 className="w-5 h-5" />
+              <div className="p-1.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/40">
+                <CheckCircle2 className="w-4 h-4" />
               </div>
             ) : (
-              <div className="p-1.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                <Info className="w-5 h-5" />
+              <div className="p-1.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/40">
+                <Info className="w-4 h-4" />
               </div>
             )}
           </div>
           <div className="flex-1 pr-2">
-            <h4 className="font-royal font-bold text-base text-[#D4AF37] tracking-wide">
+            <h4 className="font-cinzel font-bold text-xs text-[#FFF3B0] tracking-wider uppercase">
               {toast.title}
             </h4>
-            <p className="text-xs text-neutral-200 mt-0.5 leading-relaxed font-sans">
+            <p className="text-xs text-neutral-300 mt-0.5 leading-relaxed font-sans">
               {toast.message}
             </p>
           </div>
@@ -48,11 +48,10 @@ export const ToastNotification: React.FC = () => {
             className="text-neutral-400 hover:text-white transition-colors p-1"
             aria-label="Close notification"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
       ))}
     </div>
   );
 };
-

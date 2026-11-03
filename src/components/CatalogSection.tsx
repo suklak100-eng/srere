@@ -4,8 +4,6 @@ import { calculateProductPrice, formatINR, generateWhatsAppInquiryUrl } from '..
 import {
   Heart,
   Search,
-  SlidersHorizontal,
-  ArrowUpDown,
   Sparkles,
   MessageCircle,
   Eye,
@@ -50,20 +48,12 @@ export const CatalogSection: React.FC = () => {
   const filteredProducts = useMemo(() => {
     return products
       .filter((item) => {
-        // Category filter
-        if (selectedCategory !== 'All' && item.category !== selectedCategory) {
-          return false;
-        }
-        // Purity filter
-        if (selectedPurity !== 'All' && item.purity !== selectedPurity) {
-          return false;
-        }
-        // Weight filter
+        if (selectedCategory !== 'All' && item.category !== selectedCategory) return false;
+        if (selectedPurity !== 'All' && item.purity !== selectedPurity) return false;
         if (selectedWeightRange === 'under-10' && item.netWeightGrams >= 10) return false;
         if (selectedWeightRange === '10-25' && (item.netWeightGrams < 10 || item.netWeightGrams > 25)) return false;
         if (selectedWeightRange === '25-plus' && item.netWeightGrams <= 25) return false;
 
-        // Search text
         if (searchQuery.trim()) {
           const q = searchQuery.toLowerCase();
           const matchTitle = item.title.toLowerCase().includes(q);
@@ -100,56 +90,56 @@ export const CatalogSection: React.FC = () => {
   };
 
   return (
-    <section id="catalog" className="py-20 bg-[#FAF6F0] relative">
+    <section id="catalog" className="py-24 bg-[#08090A] relative text-neutral-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#D4AF37]/25 gap-4">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7B112C]/10 border border-[#7B112C]/20 text-[#7B112C] text-xs font-semibold uppercase tracking-widest mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Haute Joaillerie Catalog</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#C5A880]/20 gap-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/30 text-[#C5A880] text-[10px] font-cinzel uppercase tracking-[0.25em]">
+              <Sparkles className="w-3 h-3 text-[#C5A880]" />
+              <span>Haute Joaillerie Gallery</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-royal font-bold text-[#041A15]">
-              The Sovereign Showcase
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-royal font-light text-white tracking-tight">
+              The Imperial Showcase
             </h2>
-            <p className="text-neutral-600 text-sm mt-1 max-w-xl">
+            <p className="text-neutral-400 text-xs sm:text-sm font-normal max-w-lg">
               Showing <strong>{filteredProducts.length}</strong> masterworks with 100% transparent live gold rate auto-pricing.
             </p>
           </div>
 
           {/* Quick Rate Banner Reminder */}
-          <div className="p-3 rounded-xl bg-white border border-[#D4AF37]/35 shadow-sm flex items-center gap-3 text-xs">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+          <div className="p-3.5 rounded-xl bg-[#0D0E11] border border-[#C5A880]/30 shadow-lg flex items-center gap-3 text-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             <div>
-              <span className="text-neutral-500 text-[11px] block">Live Pricing Basis:</span>
-              <span className="font-mono font-bold text-[#041A15]">
+              <span className="text-neutral-400 text-[10px] uppercase font-cinzel tracking-wider block">Live Pricing Basis</span>
+              <span className="font-mono font-bold text-[#FFF3B0]">
                 22K BIS 916: {formatINR(rates.k22)}/g
               </span>
             </div>
           </div>
         </div>
 
-        {/* Filter & Sort Bar */}
-        <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#D4AF37]/30 shadow-luxury mb-10 space-y-4">
+        {/* Filter & Sort Console */}
+        <div className="bg-[#0D0E11]/90 rounded-2xl p-4 sm:p-5 border border-[#C5A880]/25 shadow-xl mb-12 space-y-4">
           
           {/* Row 1: Search & Dropdowns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             
             {/* Search Input */}
             <div className="relative">
-              <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-3.5 h-3.5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by name, SKU, gem..."
-                className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-neutral-200 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none transition-all"
+                placeholder="Search by title, SKU, gem..."
+                className="w-full pl-9 pr-4 py-2.5 text-xs rounded-xl bg-[#14171A] border border-[#C5A880]/25 text-white placeholder-neutral-500 focus:border-[#C5A880] focus:ring-1 focus:ring-[#C5A880] outline-none transition-all"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 text-xs font-bold"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-white text-xs font-bold"
                 >
                   ✕
                 </button>
@@ -158,11 +148,11 @@ export const CatalogSection: React.FC = () => {
 
             {/* Purity Filter */}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-neutral-500 font-medium whitespace-nowrap">Purity:</span>
+              <span className="text-xs text-neutral-400 font-cinzel whitespace-nowrap">Purity:</span>
               <select
                 value={selectedPurity}
                 onChange={(e) => setSelectedPurity(e.target.value)}
-                className="w-full py-2.5 px-3 text-xs rounded-xl border border-neutral-200 bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none font-medium"
+                className="w-full py-2.5 px-3 text-xs rounded-xl bg-[#14171A] border border-[#C5A880]/25 text-neutral-200 focus:border-[#C5A880] outline-none font-medium"
               >
                 <option value="All">All Purities</option>
                 <option value="22K">22K BIS 916 Hallmark</option>
@@ -173,11 +163,11 @@ export const CatalogSection: React.FC = () => {
 
             {/* Weight Range Filter */}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-neutral-500 font-medium whitespace-nowrap">Weight:</span>
+              <span className="text-xs text-neutral-400 font-cinzel whitespace-nowrap">Weight:</span>
               <select
                 value={selectedWeightRange}
                 onChange={(e) => setSelectedWeightRange(e.target.value)}
-                className="w-full py-2.5 px-3 text-xs rounded-xl border border-neutral-200 bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none font-medium"
+                className="w-full py-2.5 px-3 text-xs rounded-xl bg-[#14171A] border border-[#C5A880]/25 text-neutral-200 focus:border-[#C5A880] outline-none font-medium"
               >
                 <option value="All">All Weights</option>
                 <option value="under-10">Under 10 grams (Delicate)</option>
@@ -188,11 +178,11 @@ export const CatalogSection: React.FC = () => {
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-2">
-              <span className="text-xs text-neutral-500 font-medium whitespace-nowrap">Sort:</span>
+              <span className="text-xs text-neutral-400 font-cinzel whitespace-nowrap">Sort:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full py-2.5 px-3 text-xs rounded-xl border border-neutral-200 bg-white focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none font-medium text-neutral-800"
+                className="w-full py-2.5 px-3 text-xs rounded-xl bg-[#14171A] border border-[#C5A880]/25 text-neutral-200 focus:border-[#C5A880] outline-none font-medium"
               >
                 <option value="featured">Royal Curated (Featured)</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -206,8 +196,8 @@ export const CatalogSection: React.FC = () => {
 
           {/* Row 2: Category Scrollable Pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 custom-scrollbar">
-            <span className="text-xs text-neutral-400 font-medium whitespace-nowrap hidden sm:inline mr-1">
-              Category:
+            <span className="text-xs text-neutral-400 font-cinzel whitespace-nowrap hidden sm:inline mr-1">
+              Universe:
             </span>
             {categories.map((cat) => {
               const active = selectedCategory === cat;
@@ -215,10 +205,10 @@ export const CatalogSection: React.FC = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-cinzel tracking-wider uppercase whitespace-nowrap transition-all duration-300 ${
                     active
-                      ? 'bg-[#041A15] text-[#FFF3B0] shadow-md border border-[#D4AF37]'
-                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-black border border-transparent'
+                      ? 'bg-gradient-to-r from-[#C5A880] to-[#DFBA73] text-[#08090A] shadow-md font-bold'
+                      : 'bg-[#14171A] text-neutral-400 hover:text-white hover:bg-[#1F2329] border border-transparent'
                   }`}
                 >
                   {cat}
@@ -231,13 +221,13 @@ export const CatalogSection: React.FC = () => {
 
         {/* Product Cards Grid */}
         {filteredProducts.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-3xl border border-[#D4AF37]/25 p-8 max-w-xl mx-auto shadow-sm">
-            <div className="w-14 h-14 rounded-full bg-[#FAF6F0] border border-[#D4AF37]/40 flex items-center justify-center mx-auto text-[#D4AF37] mb-4">
-              <Search className="w-7 h-7" />
+          <div className="text-center py-20 bg-[#0D0E11] rounded-3xl border border-[#C5A880]/20 p-8 max-w-xl mx-auto shadow-xl">
+            <div className="w-14 h-14 rounded-full bg-[#14171A] border border-[#C5A880]/30 flex items-center justify-center mx-auto text-[#C5A880] mb-4">
+              <Search className="w-6 h-6" />
             </div>
-            <h3 className="font-royal text-2xl font-bold text-[#041A15]">No Masterpieces Found</h3>
-            <p className="text-xs text-neutral-500 mt-2 max-w-md mx-auto">
-              We couldn't find items matching your search criteria. Try clearing some filters or searching for terms like "Rani Haar", "Polki", or "Solitaire".
+            <h3 className="font-royal text-2xl font-light text-white">No Masterworks Found</h3>
+            <p className="text-xs text-neutral-400 mt-2 max-w-md mx-auto">
+              We couldn't find items matching your search criteria. Try clearing filters or searching for terms like "Rani Haar", "Polki", or "Solitaire".
             </p>
             <button
               onClick={() => {
@@ -246,7 +236,7 @@ export const CatalogSection: React.FC = () => {
                 setSelectedWeightRange('All');
                 setSearchQuery('');
               }}
-              className="mt-6 px-5 py-2.5 rounded-full bg-[#041A15] text-[#FFF3B0] text-xs font-semibold hover:bg-[#07261F] transition-all"
+              className="mt-6 px-5 py-2.5 rounded-full bg-[#C5A880] text-[#08090A] text-xs font-cinzel tracking-wider uppercase font-bold hover:bg-[#FFF3B0] transition-all"
             >
               Reset All Filters
             </button>
@@ -264,7 +254,7 @@ export const CatalogSection: React.FC = () => {
                   className="jewelry-card flex flex-col justify-between group cursor-pointer"
                 >
                   {/* Top Image Wrap with Mandatory Light Glint and Zoom Engine */}
-                  <div className="jewelry-card-img-wrap aspect-[4/4.2] bg-neutral-100 w-full relative">
+                  <div className="jewelry-card-img-wrap aspect-[4/4.3] w-full relative">
                     
                     <img
                       src={item.image}
@@ -273,20 +263,20 @@ export const CatalogSection: React.FC = () => {
                       loading="lazy"
                     />
 
-                    {/* Dark gradient for top badges */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30 pointer-events-none" />
+                    {/* Editorial vignette overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E11] via-transparent to-black/40 pointer-events-none" />
 
                     {/* Top Badges Row */}
                     <div className="absolute top-3 left-3 right-3 flex items-start justify-between z-10 pointer-events-none">
                       
                       {/* Left: Velvet Ruby Purity Pill */}
                       <div className="flex flex-col gap-1 items-start">
-                        <span className="px-2.5 py-1 rounded-md bg-[#7B112C] text-[#FFF3B0] text-[10px] font-bold tracking-wider uppercase border border-[#D4AF37]/50 shadow-md">
+                        <span className="px-2.5 py-1 rounded bg-[#6E1024] text-[#FFF3B0] text-[9px] font-cinzel font-bold tracking-wider uppercase border border-[#C5A880]/40 shadow-md">
                           {item.purity} BIS 916
                         </span>
                         
                         {item.stoneValue > 0 && (
-                          <span className="px-2 py-0.5 rounded-md bg-[#041A15]/80 text-[#FFF3B0] text-[9px] font-semibold border border-[#D4AF37]/30 backdrop-blur-sm">
+                          <span className="px-2 py-0.5 rounded bg-black/70 text-[#FFF3B0] text-[8px] font-semibold border border-[#C5A880]/30 backdrop-blur-sm">
                             Diamonds / Gems
                           </span>
                         )}
@@ -294,8 +284,8 @@ export const CatalogSection: React.FC = () => {
 
                       {/* Right: Net Weight Pill & Wishlist Button */}
                       <div className="flex items-center gap-1.5 pointer-events-auto">
-                        <span className="px-2 py-1 rounded-md bg-[#041A15]/85 text-white text-[10px] font-mono font-bold border border-white/20 backdrop-blur-sm flex items-center gap-1">
-                          <Scale className="w-3 h-3 text-[#D4AF37]" />
+                        <span className="px-2 py-1 rounded bg-black/80 text-white text-[10px] font-mono font-bold border border-white/20 backdrop-blur-sm flex items-center gap-1">
+                          <Scale className="w-3 h-3 text-[#C5A880]" />
                           {item.netWeightGrams.toFixed(2)}g
                         </span>
 
@@ -306,8 +296,8 @@ export const CatalogSection: React.FC = () => {
                           }}
                           className={`p-2 rounded-full backdrop-blur-md transition-all shadow-md ${
                             wishlisted
-                              ? 'bg-[#7B112C] text-white border border-[#D4AF37]'
-                              : 'bg-white/80 hover:bg-white text-neutral-700 hover:text-[#7B112C] border border-white/40'
+                              ? 'bg-[#6E1024] text-white border border-[#C5A880]'
+                              : 'bg-black/60 hover:bg-black text-neutral-300 hover:text-[#C5A880] border border-white/20'
                           }`}
                           aria-label="Save to Wishlist"
                           title="Save to Wishlist"
@@ -320,29 +310,29 @@ export const CatalogSection: React.FC = () => {
 
                     {/* Sold out overlay if disabled in admin */}
                     {!item.inStock && (
-                      <div className="absolute inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-10">
-                        <span className="px-4 py-1.5 rounded-full bg-[#7B112C] text-white text-xs font-bold uppercase tracking-widest border border-red-300">
+                      <div className="absolute inset-0 bg-black/75 backdrop-blur-xs flex items-center justify-center z-10">
+                        <span className="px-4 py-1.5 rounded-full bg-[#6E1024] text-white text-xs font-cinzel font-bold uppercase tracking-widest border border-red-300">
                           Reserved / Sold Out
                         </span>
                       </div>
                     )}
 
                     {/* Mandatory Slide-up Quick Action Drawer inside Card on Hover */}
-                    <div className="card-hover-drawer absolute bottom-0 left-0 right-0 p-3 bg-[#041A15]/95 backdrop-blur-md border-t border-[#D4AF37]/40 z-20 flex items-center gap-2">
+                    <div className="card-hover-drawer absolute bottom-0 left-0 right-0 p-3 bg-[#08090A]/95 backdrop-blur-md border-t border-[#C5A880]/30 z-20 flex items-center gap-2">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           openMagnifier(item);
                         }}
-                        className="flex-1 py-2 px-2.5 rounded-lg bg-[#D4AF37]/20 hover:bg-[#D4AF37]/35 border border-[#D4AF37]/50 text-[#FFF3B0] text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                        className="flex-1 py-2 px-2.5 rounded-lg bg-[#C5A880]/20 hover:bg-[#C5A880]/35 border border-[#C5A880]/40 text-[#FFF3B0] text-[10px] font-cinzel font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
                       >
-                        <Eye className="w-3.5 h-3.5 text-[#D4AF37]" />
-                        <span>Inspect & Price</span>
+                        <Eye className="w-3.5 h-3.5 text-[#C5A880]" />
+                        <span>Inspect Studio Loupe</span>
                       </button>
 
                       <button
                         onClick={(e) => handleWhatsAppReserve(item, e)}
-                        className="py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold flex items-center justify-center gap-1 transition-colors shadow-sm"
+                        className="py-2 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-[10px] font-semibold flex items-center justify-center gap-1 transition-colors shadow-sm"
                         title="WhatsApp Concierge"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
@@ -353,51 +343,51 @@ export const CatalogSection: React.FC = () => {
                   </div>
 
                   {/* Card Body */}
-                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-white">
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-[#0D0E11]">
                     <div>
                       {/* SKU & Category Row */}
-                      <div className="flex items-center justify-between text-[11px] text-neutral-400 mb-1">
-                        <span className="font-mono font-medium tracking-wide text-neutral-500">{item.sku}</span>
-                        <span className="text-[10px] uppercase tracking-wider text-[#9A7432] font-semibold">
+                      <div className="flex items-center justify-between text-[10px] text-neutral-400 mb-1">
+                        <span className="font-mono text-neutral-500">{item.sku}</span>
+                        <span className="uppercase font-cinzel tracking-wider text-[#C5A880] font-semibold text-[9px]">
                           {item.category}
                         </span>
                       </div>
 
                       {/* Royal Title */}
-                      <h3 className="font-royal font-bold text-lg text-[#041A15] group-hover:text-[#9A7432] transition-colors line-clamp-1 leading-snug">
+                      <h3 className="font-royal text-lg text-white group-hover:text-[#FFF3B0] transition-colors line-clamp-1 leading-snug">
                         {item.title}
                       </h3>
 
                       {/* Short Description */}
-                      <p className="text-[11px] text-neutral-500 line-clamp-2 mt-1 font-sans leading-relaxed">
+                      <p className="text-[11px] text-neutral-400 line-clamp-2 mt-1.5 font-sans leading-relaxed">
                         {item.description}
                       </p>
                     </div>
 
                     {/* Price and Breakdown */}
-                    <div className="mt-4 pt-3 border-t border-neutral-100">
+                    <div className="mt-4 pt-3 border-t border-[#C5A880]/15">
                       
                       {/* Price Header */}
                       <div className="flex items-baseline justify-between">
                         <div>
-                          <span className="text-[9px] uppercase tracking-widest text-neutral-400 font-medium block">
-                            Live Showroom Price
+                          <span className="text-[9px] uppercase font-cinzel tracking-widest text-neutral-400 block">
+                            Live Showroom Estimate
                           </span>
-                          <span className="font-mono text-xl sm:text-2xl font-extrabold text-[#041A15]">
+                          <span className="font-mono text-xl sm:text-2xl font-extrabold text-[#FFF3B0]">
                             {formatINR(breakdown.finalPrice)}
                           </span>
                         </div>
                         
                         <div className="text-right">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                            <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                          <span className="inline-flex items-center gap-1 text-[9px] font-medium text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
+                            <ShieldCheck className="w-3 h-3 text-emerald-400" />
                             Live Rate
                           </span>
                         </div>
                       </div>
 
                       {/* Mini Breakdown Line */}
-                      <div className="mt-2 text-[10px] text-neutral-500 flex items-center justify-between font-mono bg-[#FAF6F0] p-1.5 rounded-lg border border-[#D4AF37]/20">
+                      <div className="mt-2 text-[10px] text-neutral-400 flex items-center justify-between font-mono bg-[#14171A] p-2 rounded-lg border border-[#C5A880]/15">
                         <span>Gold: {formatINR(breakdown.metalCost)}</span>
                         <span>•</span>
                         <span>Making: {item.makingChargePercent}%</span>
@@ -418,4 +408,3 @@ export const CatalogSection: React.FC = () => {
     </section>
   );
 };
-

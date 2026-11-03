@@ -12,7 +12,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
   const categories = [
     {
       name: 'Bridal Sets',
-      subtitle: 'Auspicious Trousseau & Rani Haar',
+      subtitle: 'Imperial Trousseau & Sitahar',
       image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=600&q=80',
       purity: '22K BIS 916'
     },
@@ -24,7 +24,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
     },
     {
       name: 'Jhumkas & Earrings',
-      subtitle: 'Meenakari, Chandbalis & Studs',
+      subtitle: 'Meenakari, Chandbalis & Drops',
       image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80',
       purity: '22K Gold'
     },
@@ -53,23 +53,21 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
   };
 
   return (
-    <section id="categories" className="py-20 bg-gradient-to-b from-[#FAF6F0] via-[#F3ECE1] to-[#FAF6F0] relative overflow-hidden">
-      
-      {/* Decorative Golden Arch Silhouette in background */}
+    <section id="categories" className="py-24 bg-[#0B0C0E] relative overflow-hidden border-t border-b border-[#C5A880]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#8A6421] text-xs font-semibold uppercase tracking-widest mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Imperial Collections</span>
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/30 text-[#C5A880] text-[10px] font-cinzel font-semibold uppercase tracking-[0.25em]">
+            <Sparkles className="w-3 h-3 text-[#C5A880]" />
+            <span>Curated Universes</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-royal font-bold text-[#041A15] tracking-tight">
-            Curated Categories of Elegance
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-royal font-light text-white tracking-tight">
+            The Haute Joaillerie Universes
           </h2>
-          <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto my-4" />
-          <p className="text-neutral-600 text-sm sm:text-base font-normal">
-            Explore handcrafted heirlooms classified by ceremonial significance. Click any category to filter our live showroom inventory.
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent mx-auto my-3" />
+          <p className="text-neutral-400 text-xs sm:text-sm font-normal max-w-md mx-auto leading-relaxed">
+            Conceived as legendary artistic movements. Select a universe to filter our live showroom inventory.
           </p>
         </div>
 
@@ -89,13 +87,13 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
               >
                 {/* Arch Container with Golden Border Ring */}
                 <div
-                  className={`relative w-full aspect-[3/4] rounded-[100px_100px_16px_16px] p-1.5 transition-all duration-500 overflow-hidden shadow-lg ${
+                  className={`relative w-full aspect-[3/4.2] rounded-[100px_100px_14px_14px] p-1.5 transition-all duration-500 overflow-hidden shadow-lg ${
                     isSelected
-                      ? 'bg-gradient-to-b from-[#D4AF37] via-[#FFF3B0] to-[#8A6421] shadow-[0_15px_30px_rgba(212,175,55,0.4)]'
-                      : 'bg-[#FFFFFF] border border-[#D4AF37]/30 hover:border-[#D4AF37] hover:shadow-[0_15px_30px_rgba(180,135,40,0.25)]'
+                      ? 'bg-gradient-to-b from-[#C5A880] via-[#FFF3B0] to-[#8A6421] shadow-[0_15px_30px_rgba(197,168,128,0.35)]'
+                      : 'bg-[#14171A] border border-[#C5A880]/25 hover:border-[#C5A880] hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)]'
                   }`}
                 >
-                  <div className="w-full h-full rounded-[96px_96px_12px_12px] overflow-hidden bg-neutral-900 relative">
+                  <div className="w-full h-full rounded-[96px_96px_10px_10px] overflow-hidden bg-neutral-900 relative">
                     <img
                       src={cat.image}
                       alt={cat.name}
@@ -103,25 +101,25 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
                       loading="lazy"
                     />
                     
-                    {/* Dark gradient for text contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#041A15]/85 via-black/20 to-transparent" />
+                    {/* Dark gradient for contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#08090A]/95 via-black/20 to-transparent" />
 
                     {/* Top Purity Pill */}
                     <div className="absolute top-3 left-1/2 -translate-x-1/2">
-                      <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/60 text-[#FFF3B0] border border-[#D4AF37]/40 backdrop-blur-sm">
+                      <span className="text-[8px] font-cinzel font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/70 text-[#FFF3B0] border border-[#C5A880]/40 backdrop-blur-sm">
                         {cat.purity}
                       </span>
                     </div>
 
                     {/* Bottom Action Icon */}
-                    <div className="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-[#D4AF37] text-[#041A15] flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+                    <div className="absolute bottom-3 right-3 w-7 h-7 rounded-full bg-[#C5A880] text-[#08090A] flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md">
                       <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                     </div>
 
                     {/* Item count tag */}
                     <div className="absolute bottom-3 left-3">
-                      <span className="text-[10px] text-neutral-300 font-medium">
-                        {count > 0 ? `${count} Designs` : 'View All'}
+                      <span className="text-[10px] text-neutral-300 font-medium font-cinzel">
+                        {count > 0 ? `${count} Pieces` : 'View All'}
                       </span>
                     </div>
 
@@ -129,15 +127,15 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
                 </div>
 
                 {/* Category Title & Subtext */}
-                <div className="text-center mt-3 w-full">
+                <div className="text-center mt-3.5 w-full">
                   <h3
-                    className={`font-royal font-bold text-base sm:text-lg transition-colors leading-tight ${
-                      isSelected ? 'text-[#D4AF37] font-extrabold' : 'text-[#041A15] group-hover:text-[#9A7432]'
+                    className={`font-royal font-medium text-base sm:text-lg transition-colors leading-tight ${
+                      isSelected ? 'text-[#C5A880] font-bold' : 'text-neutral-200 group-hover:text-[#FFF3B0]'
                     }`}
                   >
                     {cat.name}
                   </h3>
-                  <p className="text-[11px] text-neutral-500 mt-0.5 line-clamp-1 font-sans hidden sm:block">
+                  <p className="text-[10px] text-neutral-400 mt-0.5 line-clamp-1 font-sans hidden sm:block">
                     {cat.subtitle}
                   </p>
                 </div>
@@ -147,14 +145,14 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
           })}
         </div>
 
-        {/* Quick View All Pill */}
+        {/* Quick Reset Filter Pill */}
         {selectedCategory !== 'All' && (
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <button
               onClick={() => onCategorySelect('All')}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-[#D4AF37] text-[#041A15] text-xs font-semibold hover:bg-[#041A15] hover:text-[#FFF3B0] transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#14171A] border border-[#C5A880] text-[#FFF3B0] text-xs font-cinzel tracking-wider uppercase hover:bg-[#C5A880] hover:text-[#08090A] transition-all shadow-md"
             >
-              <span>Showing "{selectedCategory}" — Click to Show All Collections</span>
+              <span>Showing: {selectedCategory} — View All Creations</span>
               <span className="text-sm font-bold">✕</span>
             </button>
           </div>
@@ -164,4 +162,3 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onCategorySe
     </section>
   );
 };
-

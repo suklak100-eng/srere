@@ -7,47 +7,66 @@ export default {
   theme: {
     extend: {
       colors: {
-        emerald: {
-          950: '#02100C',
-          900: '#041A15', // Deep Imperial Emerald
-          850: '#07261F', // Midnight Jade
-          800: '#0B362C',
-          700: '#114B3E',
+        obsidian: {
+          950: '#040506',
+          900: '#08090A',
+          850: '#0D0E11',
+          800: '#14171A',
+          700: '#1F2329',
         },
-        pearl: {
+        emerald: {
+          950: '#020C09',
+          900: '#041A15',
+          850: '#07261F',
+          800: '#0B362C',
+        },
+        alabaster: {
           50: '#FFFFFF',
-          100: '#FAF6F0', // Warm Pearl Alabaster
-          200: '#F3ECE1', // Soft Champagne Silk
-          300: '#E7DCcb',
-          400: '#D5C5B0',
+          100: '#FAF8F5',
+          200: '#F4EFE8',
+          300: '#ECE3D7',
+          400: '#DFD2C0',
+        },
+        champagne: {
+          100: '#FBF5EB',
+          200: '#F5E6CD',
+          300: '#EBD2A4',
+          400: '#DFBA73',
+          500: '#C5A880',
+          600: '#AA8858',
+          700: '#8A6736',
         },
         gold: {
           100: '#FFF9D9',
           200: '#FFF3B0',
           300: '#EBD27A',
           400: '#DFC25E',
-          500: '#D4AF37', // Metallic Liquid Gold
+          500: '#D4AF37',
           600: '#C59B27',
           700: '#AA771C',
           800: '#8A6421',
-          900: '#5F4414',
         },
         ruby: {
-          800: '#7B112C', // Velvet Ruby
           900: '#54081B',
+          800: '#6E1024',
+          700: '#871831',
         }
       },
       fontFamily: {
+        cinzel: ['"Cinzel"', 'serif'],
         royal: ['"Cormorant Garamond"', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
+      letterSpacing: {
+        'widest-luxury': '0.28em',
+        'super-wide': '0.35em',
+      },
       boxShadow: {
-        'luxury': '0 20px 40px -15px rgba(4, 26, 21, 0.08), 0 0 15px rgba(212, 175, 55, 0.12)',
-        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.35)',
-        'card-lift': '0 25px 50px -12px rgba(180, 135, 40, 0.28)',
+        'pedestal': '0 30px 60px -12px rgba(0, 0, 0, 0.45)',
+        'gold-subtle': '0 0 25px rgba(197, 168, 128, 0.18)',
+        'gold-glow': '0 0 35px rgba(212, 175, 55, 0.35)',
       }
     },
   },
   plugins: [],
 }
-

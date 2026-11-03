@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Shield, Compass, HeartHandshake, Eye } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 export const CraftsmanshipSection: React.FC<{ onExploreClick: () => void }> = ({ onExploreClick }) => {
   const pillars = [
@@ -30,20 +30,20 @@ export const CraftsmanshipSection: React.FC<{ onExploreClick: () => void }> = ({
   ];
 
   return (
-    <section className="py-24 bg-[#FAF6F0] relative overflow-hidden border-t border-[#D4AF37]/20">
+    <section className="py-24 bg-[#08090A] relative overflow-hidden border-t border-[#C5A880]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#8A6421] text-xs font-semibold uppercase tracking-widest mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/30 text-[#C5A880] text-[10px] font-cinzel font-semibold uppercase tracking-[0.25em]">
+            <Sparkles className="w-3 h-3 text-[#C5A880]" />
             <span>Master Atelier Legacy</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-royal font-bold text-[#041A15] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-royal font-light text-white tracking-tight">
             The Haute Joaillerie Code
           </h2>
-          <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto my-4" />
-          <p className="text-neutral-600 text-sm sm:text-base font-normal">
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#C5A880] to-transparent mx-auto my-3" />
+          <p className="text-neutral-400 text-xs sm:text-sm font-normal max-w-md mx-auto leading-relaxed">
             Where ancestral craftsmanship meets contemporary metallurgical purity. No shortcuts, no artificial alloys—only masterworks built to be handed down for generations.
           </p>
         </div>
@@ -53,31 +53,31 @@ export const CraftsmanshipSection: React.FC<{ onExploreClick: () => void }> = ({
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white border border-[#D4AF37]/30 shadow-luxury hover:-translate-y-2 hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group"
+              className="p-6 rounded-2xl bg-[#0D0E11] border border-[#C5A880]/20 hover:-translate-y-2 hover:border-[#C5A880] transition-all duration-300 flex flex-col justify-between group shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs font-bold text-[#D4AF37]">
+                  <span className="font-cinzel text-xs font-bold text-[#C5A880]">
                     0{idx + 1}
                   </span>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#FAF6F0] text-[#7B112C] border border-[#D4AF37]/25">
+                  <span className="text-[9px] font-cinzel uppercase font-semibold tracking-wider px-2 py-0.5 rounded bg-[#14171A] text-[#FFF3B0] border border-[#C5A880]/30">
                     {pillar.tag}
                   </span>
                 </div>
 
-                <h3 className="font-royal font-bold text-xl text-[#041A15] group-hover:text-[#9A7432] transition-colors leading-snug">
+                <h3 className="font-royal text-xl text-white group-hover:text-[#FFF3B0] transition-colors leading-snug">
                   {pillar.title}
                 </h3>
-                <div className="text-xs font-semibold text-[#8A6421] mt-1 font-sans">
+                <div className="text-xs font-cinzel text-[#C5A880] mt-1">
                   {pillar.subtitle}
                 </div>
 
-                <p className="text-xs text-neutral-600 mt-3 leading-relaxed font-sans">
+                <p className="text-xs text-neutral-400 mt-3 leading-relaxed font-sans">
                   {pillar.desc}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-neutral-100 flex items-center justify-between text-[11px] text-[#9A7432] font-semibold">
+              <div className="pt-4 mt-6 border-t border-white/10 flex items-center justify-between text-[10px] font-cinzel text-[#C5A880] tracking-wider uppercase font-semibold">
                 <span>BIS 916 Standard</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </div>
@@ -86,24 +86,24 @@ export const CraftsmanshipSection: React.FC<{ onExploreClick: () => void }> = ({
         </div>
 
         {/* Banner with CTA */}
-        <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-[#041A15] border-2 border-[#D4AF37]/40 text-white relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
-          <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#D4AF37]/15 to-transparent pointer-events-none" />
+        <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-[#0D0E11] border border-[#C5A880]/40 text-white relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
+          <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#C5A880]/15 to-transparent pointer-events-none" />
 
           <div className="space-y-2 text-center lg:text-left z-10">
-            <span className="text-xs font-mono font-bold text-[#D4AF37] tracking-widest uppercase">
+            <span className="text-[10px] font-cinzel font-bold text-[#C5A880] tracking-[0.25em] uppercase">
               Bespoke Bridal Consultations
             </span>
-            <h3 className="font-royal text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+            <h3 className="font-royal text-2xl sm:text-3xl lg:text-4xl text-white font-light">
               Designing Your Custom Family Heirloom?
             </h3>
-            <p className="text-neutral-300 text-xs sm:text-sm max-w-xl font-sans">
+            <p className="text-neutral-400 text-xs sm:text-sm max-w-xl font-sans">
               Collaborate directly with our master sketch artists and karigars. Provide your antique gold or choose our 24K bullion to craft one-of-a-kind wedding jewelry.
             </p>
           </div>
 
           <button
             onClick={onExploreClick}
-            className="btn-luxury-gold px-8 py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider whitespace-nowrap z-10 flex-shrink-0"
+            className="btn-luxury-gold px-8 py-4 rounded-full text-xs font-cinzel font-bold uppercase tracking-[0.16em] whitespace-nowrap z-10 flex-shrink-0"
           >
             Explore Showcase
           </button>
@@ -113,4 +113,3 @@ export const CraftsmanshipSection: React.FC<{ onExploreClick: () => void }> = ({
     </section>
   );
 };
-

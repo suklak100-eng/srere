@@ -31,7 +31,7 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6F0] flex flex-col font-sans selection:bg-[#D4AF37] selection:text-[#041A15] relative">
+    <div className="min-h-screen bg-[#08090A] text-[#E8E6E3] flex flex-col font-sans selection:bg-[#C5A880] selection:text-[#08090A] relative">
       
       {/* 1. Top Infinite Live Bullion Ticker */}
       <TopTicker />

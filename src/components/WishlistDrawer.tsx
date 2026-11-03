@@ -5,10 +5,7 @@ import {
   X,
   Heart,
   Trash2,
-  Eye,
   MessageCircle,
-  Sparkles,
-  ArrowRight,
   ShieldCheck
 } from 'lucide-react';
 
@@ -59,20 +56,20 @@ export const WishlistDrawer: React.FC = () => {
       {/* Backdrop */}
       <div
         onClick={() => setIsWishlistOpen(false)}
-        className="fixed inset-0 bg-[#02100C]/80 backdrop-blur-sm"
+        className="fixed inset-0 bg-[#040506]/85 backdrop-blur-sm"
       />
 
       {/* Drawer Panel */}
-      <div className="relative w-full max-w-md bg-[#041A15] border-l border-[#D4AF37]/40 shadow-2xl z-10 flex flex-col h-full animate-slide-left text-neutral-100">
+      <div className="relative w-full max-w-md bg-[#08090A] border-l border-[#C5A880]/30 shadow-2xl z-10 flex flex-col h-full text-neutral-100">
         
         {/* Top Header */}
-        <div className="p-5 border-b border-[#D4AF37]/30 flex items-center justify-between bg-[#02100C]">
+        <div className="p-5 border-b border-[#C5A880]/20 flex items-center justify-between bg-[#050608]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-[#7B112C] text-[#FFF3B0] border border-[#D4AF37]/40">
+            <div className="p-2 rounded-xl bg-[#6E1024] text-[#FFF3B0] border border-[#C5A880]/40">
               <Heart className="w-4 h-4 fill-current" />
             </div>
             <div>
-              <h3 className="font-royal text-xl font-bold text-white tracking-wide">
+              <h3 className="font-cinzel text-lg font-bold text-white tracking-wide">
                 Your Royal Trousseau
               </h3>
               <p className="text-[11px] text-neutral-400">
@@ -83,7 +80,7 @@ export const WishlistDrawer: React.FC = () => {
 
           <button
             onClick={() => setIsWishlistOpen(false)}
-            className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-neutral-300 hover:text-white"
+            className="p-1.5 rounded-full bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-white"
           >
             <X className="w-5 h-5" />
           </button>
@@ -93,18 +90,18 @@ export const WishlistDrawer: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
           {savedProducts.length === 0 ? (
             <div className="text-center py-20 px-4 space-y-4">
-              <div className="w-14 h-14 rounded-full bg-[#07261F] border border-[#D4AF37]/30 text-[#D4AF37] flex items-center justify-center mx-auto">
+              <div className="w-14 h-14 rounded-full bg-[#0D0E11] border border-[#C5A880]/30 text-[#C5A880] flex items-center justify-center mx-auto">
                 <Heart className="w-6 h-6" />
               </div>
-              <h4 className="font-royal text-xl font-bold text-white">Your Wishlist is Empty</h4>
+              <h4 className="font-cinzel text-lg font-bold text-white">Your Selection is Empty</h4>
               <p className="text-xs text-neutral-400 max-w-xs mx-auto">
-                Click the heart icon on any royal creation in our catalog to curate your bridal selection.
+                Click the heart icon on any royal creation in our showcase to curate your private selection.
               </p>
               <button
                 onClick={() => setIsWishlistOpen(false)}
-                className="mt-2 px-5 py-2 rounded-full bg-[#D4AF37] text-[#041A15] text-xs font-bold hover:bg-[#FFF3B0]"
+                className="mt-2 px-5 py-2 rounded-full bg-[#C5A880] text-[#08090A] text-xs font-cinzel font-bold tracking-wider uppercase hover:bg-[#FFF3B0]"
               >
-                Explore Catalog
+                Explore Gallery
               </button>
             </div>
           ) : (
@@ -114,12 +111,12 @@ export const WishlistDrawer: React.FC = () => {
               return (
                 <div
                   key={item.id}
-                  className="p-3 rounded-2xl bg-[#07261F] border border-[#D4AF37]/30 flex items-center gap-3.5 hover:border-[#D4AF37] transition-all group"
+                  className="p-3 rounded-2xl bg-[#0D0E11] border border-[#C5A880]/20 flex items-center gap-3.5 hover:border-[#C5A880] transition-all group"
                 >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-16 h-16 rounded-xl object-cover border border-[#D4AF37]/40 flex-shrink-0 cursor-pointer"
+                    className="w-16 h-16 rounded-xl object-cover border border-[#C5A880]/30 flex-shrink-0 cursor-pointer"
                     onClick={() => {
                       setIsWishlistOpen(false);
                       openMagnifier(item);
@@ -128,7 +125,7 @@ export const WishlistDrawer: React.FC = () => {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between text-[10px] text-neutral-400">
-                      <span className="font-mono text-[#D4AF37]">{item.sku}</span>
+                      <span className="font-mono text-[#C5A880]">{item.sku}</span>
                       <span>{item.netWeightGrams.toFixed(2)}g ({item.purity})</span>
                     </div>
 
@@ -137,7 +134,7 @@ export const WishlistDrawer: React.FC = () => {
                         setIsWishlistOpen(false);
                         openMagnifier(item);
                       }}
-                      className="font-royal font-bold text-sm text-white line-clamp-1 cursor-pointer group-hover:text-[#FFF3B0] transition-colors"
+                      className="font-royal font-medium text-sm text-white line-clamp-1 cursor-pointer group-hover:text-[#FFF3B0] transition-colors"
                     >
                       {item.title}
                     </h5>
@@ -164,24 +161,24 @@ export const WishlistDrawer: React.FC = () => {
 
         {/* Bottom Total & WhatsApp Inquiry */}
         {savedProducts.length > 0 && (
-          <div className="p-5 border-t border-[#D4AF37]/30 bg-[#02100C] space-y-3">
+          <div className="p-5 border-t border-[#C5A880]/20 bg-[#050608] space-y-3">
             <div className="flex items-baseline justify-between">
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-neutral-400 block">
+                <span className="text-[9px] uppercase font-cinzel tracking-wider text-neutral-400 block">
                   Curated Trousseau Total
                 </span>
                 <span className="font-mono text-2xl font-extrabold text-[#FFF3B0]">
                   {formatINR(totalEstimate)}
                 </span>
               </div>
-              <span className="text-[10px] text-emerald-400 flex items-center gap-1">
+              <span className="text-[10px] text-emerald-400 flex items-center gap-1 font-mono">
                 <ShieldCheck className="w-3.5 h-3.5" /> 3% GST Inc.
               </span>
             </div>
 
             <button
               onClick={handleShareAllWhatsApp}
-              className="w-full py-3.5 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-lg transition-all"
+              className="w-full py-3.5 px-4 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-lg transition-all"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Inquire Selected Items via WhatsApp</span>
@@ -193,4 +190,3 @@ export const WishlistDrawer: React.FC = () => {
     </div>
   );
 };
-

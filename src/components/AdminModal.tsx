@@ -14,13 +14,10 @@ import {
   Settings,
   RotateCcw,
   Sparkles,
-  Check,
   Trash2,
   ToggleLeft,
   ToggleRight,
-  MessageCircle,
-  ShieldCheck,
-  DollarSign
+  MessageCircle
 } from 'lucide-react';
 
 export const AdminModal: React.FC = () => {
@@ -40,8 +37,7 @@ export const AdminModal: React.FC = () => {
     appointments,
     updateAppointmentStatus,
     settings,
-    updateSettings,
-    showToast
+    updateSettings
   } = useJewelry();
 
   const [enteredPin, setEnteredPin] = useState('');
@@ -113,29 +109,29 @@ export const AdminModal: React.FC = () => {
       {/* Backdrop */}
       <div
         onClick={() => setIsAdminOpen(false)}
-        className="fixed inset-0 bg-[#02100C]/90 backdrop-blur-md"
+        className="fixed inset-0 bg-[#040506]/90 backdrop-blur-md"
       />
 
       {/* Modal Dialog */}
-      <div className="relative bg-[#041A15] text-neutral-100 w-full max-w-5xl rounded-3xl border-2 border-[#D4AF37]/50 shadow-[0_25px_80px_rgba(0,0,0,0.8)] overflow-hidden z-10 my-auto flex flex-col max-h-[90vh]">
+      <div className="relative bg-[#08090A] text-neutral-100 w-full max-w-5xl rounded-3xl border border-[#C5A880]/40 shadow-[0_25px_80px_rgba(0,0,0,0.85)] overflow-hidden z-10 my-auto flex flex-col max-h-[90vh]">
         
         {/* Top Header */}
-        <div className="bg-[#02100C] px-6 py-4 border-b border-[#D4AF37]/30 flex items-center justify-between">
+        <div className="bg-[#050608] px-6 py-4 border-b border-[#C5A880]/20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40">
+            <div className="p-2 rounded-xl bg-[#C5A880]/15 text-[#C5A880] border border-[#C5A880]/30">
               <KeyRound className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-royal text-xl sm:text-2xl font-bold text-white tracking-wide">
-                  Aurelia Showroom Portal
+                <h3 className="font-cinzel text-lg sm:text-xl font-bold text-white tracking-wide">
+                  Aurelia Showroom Director Console
                 </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#7B112C] text-[#FFF3B0] font-mono font-bold">
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#6E1024] text-[#FFF3B0] font-mono font-bold">
                   PIN: 1234
                 </span>
               </div>
-              <p className="text-[11px] text-neutral-400">
-                Live Gold Rate Broadcast Engine & Inventory Manager
+              <p className="text-[10px] text-neutral-400">
+                Live Bullion Rate Broadcast Engine & Inventory Manager
               </p>
             </div>
           </div>
@@ -144,14 +140,14 @@ export const AdminModal: React.FC = () => {
             {isAdminAuthenticated && (
               <button
                 onClick={logoutAdmin}
-                className="text-xs text-neutral-400 hover:text-white px-3 py-1 rounded-lg bg-black/40 border border-white/10"
+                className="text-xs text-neutral-400 hover:text-white px-3 py-1 rounded-lg bg-white/5 border border-white/10"
               >
                 Log Out
               </button>
             )}
             <button
               onClick={() => setIsAdminOpen(false)}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-neutral-300 hover:text-white"
+              className="p-1.5 rounded-full bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
@@ -161,16 +157,16 @@ export const AdminModal: React.FC = () => {
         {/* Auth Barrier or Portal Workspace */}
         {!isAdminAuthenticated ? (
           <div className="p-8 sm:p-14 text-center max-w-md mx-auto my-auto space-y-6">
-            <div className="w-16 h-16 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-[#D4AF37] flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+            <div className="w-16 h-16 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/30 text-[#C5A880] flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(197,168,128,0.2)]">
               <Lock className="w-8 h-8" />
             </div>
 
             <div>
-              <h4 className="font-royal text-2xl font-bold text-white">Showroom Vault Authentication</h4>
+              <h4 className="font-cinzel text-xl font-bold text-white">Showroom Vault Authentication</h4>
               <p className="text-xs text-neutral-400 mt-1">
                 Enter your 4-digit Director PIN to access live bullion pricing, inventory edits, and VIP appointments.
               </p>
-              <div className="inline-block mt-2 px-3 py-1 rounded-md bg-[#07261F] border border-[#D4AF37]/30 text-[#FFF3B0] text-xs font-mono">
+              <div className="inline-block mt-2 px-3 py-1 rounded-md bg-[#14171A] border border-[#C5A880]/30 text-[#FFF3B0] text-xs font-mono">
                 Hint: Default Demo PIN is <strong>1234</strong>
               </div>
             </div>
@@ -182,15 +178,15 @@ export const AdminModal: React.FC = () => {
                 value={enteredPin}
                 onChange={(e) => setEnteredPin(e.target.value)}
                 placeholder="Enter PIN (1234)"
-                className="w-full text-center tracking-[0.5em] text-2xl font-mono py-3 rounded-2xl bg-black/50 border border-[#D4AF37]/40 text-[#FFF3B0] focus:border-[#D4AF37] focus:outline-none"
+                className="w-full text-center tracking-[0.5em] text-2xl font-mono py-3 rounded-2xl bg-black/60 border border-[#C5A880]/40 text-[#FFF3B0] focus:border-[#C5A880] focus:outline-none"
                 autoFocus
               />
 
               <button
                 type="submit"
-                className="btn-luxury-gold w-full py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2"
+                className="btn-luxury-gold w-full py-3.5 rounded-full text-xs font-cinzel font-bold uppercase tracking-wider flex items-center justify-center gap-2"
               >
-                <Unlock className="w-4 h-4 text-[#041A15]" />
+                <Unlock className="w-4 h-4 text-[#08090A]" />
                 <span>Unlock Showroom Vault</span>
               </button>
             </form>
@@ -199,13 +195,13 @@ export const AdminModal: React.FC = () => {
           <div className="flex flex-col flex-1 overflow-hidden">
             
             {/* Top Navigation Tabs */}
-            <div className="flex items-center gap-2 px-6 pt-3 pb-2 border-b border-[#D4AF37]/20 bg-[#07261F]/60 overflow-x-auto custom-scrollbar">
+            <div className="flex items-center gap-2 px-6 pt-3 pb-2 border-b border-[#C5A880]/20 bg-[#0D0E11] overflow-x-auto custom-scrollbar">
               <button
                 onClick={() => setActiveTab('rates')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-cinzel font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
                   activeTab === 'rates'
-                    ? 'bg-[#D4AF37] text-[#041A15] shadow-md font-bold'
-                    : 'text-neutral-300 hover:text-white hover:bg-black/20'
+                    ? 'bg-[#C5A880] text-[#08090A] shadow-md font-bold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <TrendingUp className="w-4 h-4" />
@@ -214,10 +210,10 @@ export const AdminModal: React.FC = () => {
 
               <button
                 onClick={() => setActiveTab('inventory')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-cinzel font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
                   activeTab === 'inventory'
-                    ? 'bg-[#D4AF37] text-[#041A15] shadow-md font-bold'
-                    : 'text-neutral-300 hover:text-white hover:bg-black/20'
+                    ? 'bg-[#C5A880] text-[#08090A] shadow-md font-bold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <Package className="w-4 h-4" />
@@ -226,38 +222,38 @@ export const AdminModal: React.FC = () => {
 
               <button
                 onClick={() => setActiveTab('add')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-cinzel font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
                   activeTab === 'add'
-                    ? 'bg-[#D4AF37] text-[#041A15] shadow-md font-bold'
-                    : 'text-neutral-300 hover:text-white hover:bg-black/20'
+                    ? 'bg-[#C5A880] text-[#08090A] shadow-md font-bold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <PlusCircle className="w-4 h-4" />
-                <span>Add Jewelry Item</span>
+                <span>Add Creation</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('appointments')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-cinzel font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
                   activeTab === 'appointments'
-                    ? 'bg-[#D4AF37] text-[#041A15] shadow-md font-bold'
-                    : 'text-neutral-300 hover:text-white hover:bg-black/20'
+                    ? 'bg-[#C5A880] text-[#08090A] shadow-md font-bold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <CalendarCheck className="w-4 h-4" />
-                <span>VIP Appointments ({appointments.length})</span>
+                <span>VIP Bookings ({appointments.length})</span>
               </button>
 
               <button
                 onClick={() => setActiveTab('settings')}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-cinzel font-semibold whitespace-nowrap flex items-center gap-2 transition-all ${
                   activeTab === 'settings'
-                    ? 'bg-[#D4AF37] text-[#041A15] shadow-md font-bold'
-                    : 'text-neutral-300 hover:text-white hover:bg-black/20'
+                    ? 'bg-[#C5A880] text-[#08090A] shadow-md font-bold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 <Settings className="w-4 h-4" />
-                <span>Showroom Info</span>
+                <span>Salon Info</span>
               </button>
             </div>
 
@@ -268,10 +264,10 @@ export const AdminModal: React.FC = () => {
               {activeTab === 'rates' && (
                 <div className="space-y-6 max-w-3xl mx-auto">
                   
-                  <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-700/50 flex items-start gap-3">
+                  <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-700/40 flex items-start gap-3">
                     <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-royal font-bold text-base text-[#FFF3B0]">
+                      <h4 className="font-cinzel font-bold text-sm text-[#FFF3B0]">
                         Real-Time Instant Price Synchronizer
                       </h4>
                       <p className="text-xs text-neutral-300 mt-0.5">
@@ -285,9 +281,9 @@ export const AdminModal: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       
                       {/* 24K Rate */}
-                      <div className="p-4 rounded-2xl bg-[#07261F] border border-[#D4AF37]/30 space-y-2">
+                      <div className="p-4 rounded-2xl bg-[#0D0E11] border border-[#C5A880]/30 space-y-2">
                         <div className="flex items-center justify-between">
-                          <label className="text-xs font-semibold text-[#FFF3B0] uppercase tracking-wider">
+                          <label className="text-xs font-cinzel text-[#FFF3B0] uppercase tracking-wider">
                             24K Pure Gold (99.9%)
                           </label>
                           <span className="text-[10px] text-neutral-400">₹ per gram</span>
@@ -301,18 +297,18 @@ export const AdminModal: React.FC = () => {
                             max="30000"
                             value={k24Rate}
                             onChange={(e) => setK24Rate(Number(e.target.value))}
-                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/40 text-white font-mono font-bold text-lg focus:outline-none focus:border-[#D4AF37]"
+                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-[#14171A] border border-[#C5A880]/40 text-white font-mono font-bold text-lg focus:outline-none focus:border-[#C5A880]"
                           />
                         </div>
                         <div className="text-[10px] text-neutral-400">Standard Bullion baseline for coins & bars</div>
                       </div>
 
                       {/* 22K Rate */}
-                      <div className="p-4 rounded-2xl bg-[#07261F] border-2 border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.2)] space-y-2">
+                      <div className="p-4 rounded-2xl bg-[#0D0E11] border-2 border-[#C5A880] shadow-[0_0_20px_rgba(197,168,128,0.2)] space-y-2">
                         <div className="flex items-center justify-between">
-                          <label className="text-xs font-bold text-[#FFF3B0] uppercase tracking-wider flex items-center gap-1">
+                          <label className="text-xs font-cinzel font-bold text-[#FFF3B0] uppercase tracking-wider flex items-center gap-1">
                             <span>22K BIS 916 Hallmark</span>
-                            <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#7B112C] text-white">Most Popular</span>
+                            <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#6E1024] text-white">Most Popular</span>
                           </label>
                           <span className="text-[10px] text-neutral-400">₹ per gram</span>
                         </div>
@@ -325,17 +321,17 @@ export const AdminModal: React.FC = () => {
                             max="30000"
                             value={k22Rate}
                             onChange={(e) => setK22Rate(Number(e.target.value))}
-                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37] text-[#FFF3B0] font-mono font-extrabold text-lg focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
+                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-[#14171A] border border-[#C5A880] text-[#FFF3B0] font-mono font-extrabold text-lg focus:outline-none"
                           />
                         </div>
-                        <div className="text-[10px] text-neutral-300">Powers all Rani Haar, Jhumkas, Bangles, and Malas</div>
+                        <div className="text-[10px] text-neutral-300">Powers Rani Haar, Jhumkas, Bangles, and Malas</div>
                       </div>
 
                       {/* 18K Rate */}
-                      <div className="p-4 rounded-2xl bg-[#07261F] border border-[#D4AF37]/30 space-y-2">
+                      <div className="p-4 rounded-2xl bg-[#0D0E11] border border-[#C5A880]/30 space-y-2">
                         <div className="flex items-center justify-between">
-                          <label className="text-xs font-semibold text-[#FFF3B0] uppercase tracking-wider">
-                            18K Rose & Diamond Gold
+                          <label className="text-xs font-cinzel text-[#FFF3B0] uppercase tracking-wider">
+                            18K Rose & Diamond Alloy
                           </label>
                           <span className="text-[10px] text-neutral-400">₹ per gram</span>
                         </div>
@@ -348,16 +344,16 @@ export const AdminModal: React.FC = () => {
                             max="30000"
                             value={k18Rate}
                             onChange={(e) => setK18Rate(Number(e.target.value))}
-                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/40 text-white font-mono font-bold text-lg focus:outline-none focus:border-[#D4AF37]"
+                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-[#14171A] border border-[#C5A880]/40 text-white font-mono font-bold text-lg focus:outline-none focus:border-[#C5A880]"
                           />
                         </div>
                         <div className="text-[10px] text-neutral-400">Powers Diamond Solitaire Rings & Tennis Bracelets</div>
                       </div>
 
                       {/* Fine Silver */}
-                      <div className="p-4 rounded-2xl bg-[#07261F] border border-[#D4AF37]/30 space-y-2">
+                      <div className="p-4 rounded-2xl bg-[#0D0E11] border border-[#C5A880]/30 space-y-2">
                         <div className="flex items-center justify-between">
-                          <label className="text-xs font-semibold text-[#FFF3B0] uppercase tracking-wider">
+                          <label className="text-xs font-cinzel text-[#FFF3B0] uppercase tracking-wider">
                             Fine Silver (99.9% Purity)
                           </label>
                           <span className="text-[10px] text-neutral-400">₹ per gram</span>
@@ -371,7 +367,7 @@ export const AdminModal: React.FC = () => {
                             max="2000"
                             value={silverRate}
                             onChange={(e) => setSilverRate(Number(e.target.value))}
-                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/40 text-white font-mono font-bold text-lg focus:outline-none focus:border-[#D4AF37]"
+                            className="w-full pl-8 pr-4 py-2.5 rounded-xl bg-[#14171A] border border-[#C5A880]/40 text-white font-mono font-bold text-lg focus:outline-none focus:border-[#C5A880]"
                           />
                         </div>
                         <div className="text-[10px] text-neutral-400">Displayed in top bullion ticker bar</div>
@@ -381,9 +377,9 @@ export const AdminModal: React.FC = () => {
 
                     <button
                       type="submit"
-                      className="btn-luxury-gold w-full py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(212,175,55,0.4)]"
+                      className="btn-luxury-gold w-full py-4 rounded-full text-xs sm:text-sm font-cinzel font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(212,175,55,0.4)]"
                     >
-                      <Sparkles className="w-5 h-5 text-[#041A15]" />
+                      <Sparkles className="w-4 h-4 text-[#08090A]" />
                       <span>⚡ Save & Broadcast Live Bullion Rates Everywhere</span>
                     </button>
 
@@ -394,7 +390,7 @@ export const AdminModal: React.FC = () => {
                     <span>Need to restore initial showroom showcase?</span>
                     <button
                       onClick={resetToDefaults}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/50 hover:bg-red-950/60 text-neutral-300 hover:text-red-300 border border-white/10 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-red-950/60 text-neutral-300 hover:text-red-300 border border-white/10 transition-colors"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                       <span>Reset to Factory Demo Data</span>
@@ -410,22 +406,22 @@ export const AdminModal: React.FC = () => {
                   
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="font-royal text-xl font-bold text-white">Live Catalog Inventory</h4>
+                      <h4 className="font-cinzel text-lg font-bold text-white">Live Catalog Inventory</h4>
                       <p className="text-xs text-neutral-400">Showing {products.length} registered jewelry pieces</p>
                     </div>
                     <button
                       onClick={() => setActiveTab('add')}
-                      className="px-4 py-2 rounded-xl bg-[#D4AF37] text-[#041A15] text-xs font-bold flex items-center gap-1.5 hover:bg-[#FFF3B0]"
+                      className="px-4 py-2 rounded-xl bg-[#C5A880] text-[#08090A] text-xs font-cinzel font-bold tracking-wider uppercase flex items-center gap-1.5 hover:bg-[#FFF3B0]"
                     >
                       <PlusCircle className="w-4 h-4" /> Add Item
                     </button>
                   </div>
 
-                  <div className="overflow-x-auto rounded-2xl border border-[#D4AF37]/30 bg-[#07261F]/60">
+                  <div className="overflow-x-auto rounded-2xl border border-[#C5A880]/25 bg-[#0D0E11]">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-[#02100C] text-[#FFF3B0] uppercase text-[10px] tracking-wider border-b border-[#D4AF37]/30">
+                      <thead className="bg-[#050608] text-[#FFF3B0] uppercase text-[9px] font-cinzel tracking-wider border-b border-white/10">
                         <tr>
-                          <th className="py-3 px-4">Item</th>
+                          <th className="py-3 px-4">Creation</th>
                           <th className="py-3 px-4">SKU / Purity</th>
                           <th className="py-3 px-4">Net Weight</th>
                           <th className="py-3 px-4">Making %</th>
@@ -434,7 +430,7 @@ export const AdminModal: React.FC = () => {
                           <th className="py-3 px-4 text-right">Actions</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#D4AF37]/15">
+                      <tbody className="divide-y divide-white/5">
                         {products.map((item) => {
                           const breakdown = calculateProductPrice(item, rates);
                           return (
@@ -443,16 +439,16 @@ export const AdminModal: React.FC = () => {
                                 <img
                                   src={item.image}
                                   alt={item.title}
-                                  className="w-10 h-10 rounded-lg object-cover border border-[#D4AF37]/30"
+                                  className="w-10 h-10 rounded-lg object-cover border border-[#C5A880]/30"
                                 />
                                 <div>
-                                  <div className="font-semibold text-white line-clamp-1">{item.title}</div>
+                                  <div className="font-medium text-white line-clamp-1">{item.title}</div>
                                   <div className="text-[10px] text-neutral-400">{item.category}</div>
                                 </div>
                               </td>
                               <td className="py-3 px-4 font-mono">
                                 <div>{item.sku}</div>
-                                <span className="text-[10px] text-[#D4AF37]">{item.purity} Gold</span>
+                                <span className="text-[10px] text-[#C5A880]">{item.purity} Gold</span>
                               </td>
                               <td className="py-3 px-4 font-mono font-bold text-white">
                                 {item.netWeightGrams.toFixed(2)} g
@@ -466,10 +462,10 @@ export const AdminModal: React.FC = () => {
                               <td className="py-3 px-4">
                                 <button
                                   onClick={() => toggleStock(item.id)}
-                                  className={`px-2.5 py-1 rounded-full text-[10px] font-semibold flex items-center gap-1 ${
+                                  className={`px-2.5 py-1 rounded-full text-[9px] font-cinzel font-semibold flex items-center gap-1 ${
                                     item.inStock
-                                      ? 'bg-emerald-950 text-emerald-300 border border-emerald-700/60'
-                                      : 'bg-red-950 text-red-300 border border-red-700/60'
+                                      ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-700/60'
+                                      : 'bg-red-950/80 text-red-300 border border-red-700/60'
                                   }`}
                                 >
                                   {item.inStock ? (
@@ -505,8 +501,8 @@ export const AdminModal: React.FC = () => {
               {/* TAB 3: Add Jewelry Item Form */}
               {activeTab === 'add' && (
                 <div className="max-w-2xl mx-auto space-y-5">
-                  <div className="border-b border-[#D4AF37]/20 pb-3">
-                    <h4 className="font-royal text-2xl font-bold text-white">Catalog New Masterwork</h4>
+                  <div className="border-b border-white/10 pb-3">
+                    <h4 className="font-cinzel text-xl font-bold text-white">Catalog New Masterwork</h4>
                     <p className="text-xs text-neutral-400">
                       Add a new bridal piece or coin. Real-time pricing formula will automatically activate based on weight and purity.
                     </p>
@@ -516,36 +512,36 @@ export const AdminModal: React.FC = () => {
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Product Title *</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Product Title *</label>
                         <input
                           type="text"
                           required
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
                           placeholder="e.g. Royal Nizam Emerald Choker"
-                          className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs outline-none focus:border-[#D4AF37]"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none focus:border-[#C5A880]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">SKU Code</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">SKU Code</label>
                         <input
                           type="text"
                           value={sku}
                           onChange={(e) => setSku(e.target.value)}
                           placeholder="e.g. ARJ-205"
-                          className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs font-mono outline-none focus:border-[#D4AF37]"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs font-mono outline-none focus:border-[#C5A880]"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Category</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Universe Category</label>
                         <select
                           value={category}
                           onChange={(e) => setCategory(e.target.value as any)}
-                          className="w-full px-3 py-2 rounded-xl bg-[#02100C] border border-[#D4AF37]/30 text-white text-xs outline-none"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none"
                         >
                           <option value="Bridal Sets">Bridal Sets</option>
                           <option value="Necklaces & Haar">Necklaces & Haar</option>
@@ -558,11 +554,11 @@ export const AdminModal: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Gold Purity</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Gold Karat Purity</label>
                         <select
                           value={purity}
                           onChange={(e) => setPurity(e.target.value as GoldPurity)}
-                          className="w-full px-3 py-2 rounded-xl bg-[#02100C] border border-[#D4AF37]/30 text-white text-xs outline-none font-bold"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none font-bold"
                         >
                           <option value="22K">22K BIS 916 Hallmark (Standard)</option>
                           <option value="18K">18K Rose/Diamond Gold</option>
@@ -573,68 +569,68 @@ export const AdminModal: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Net Weight (grams) *</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Net Weight (grams) *</label>
                         <input
                           type="number"
                           step="0.01"
                           required
                           value={netWeight}
                           onChange={(e) => setNetWeight(parseFloat(e.target.value))}
-                          className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs font-mono outline-none"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs font-mono outline-none"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Making Charge (%) *</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Making Charge (%) *</label>
                         <input
                           type="number"
                           step="0.5"
                           required
                           value={makingCharge}
                           onChange={(e) => setMakingCharge(parseFloat(e.target.value))}
-                          className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs font-mono outline-none"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs font-mono outline-none"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Stone Value (₹)</label>
+                        <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Stone Value (₹)</label>
                         <input
                           type="number"
                           step="500"
                           value={stoneValue}
                           onChange={(e) => setStoneValue(parseFloat(e.target.value) || 0)}
-                          className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs font-mono outline-none"
+                          className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs font-mono outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">High-Res Image URL</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">High-Res Image URL</label>
                       <input
                         type="url"
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                         placeholder="https://images.unsplash.com/photo-..."
-                        className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Royal Story / Craftsmanship Description</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Royal Story / Craftsmanship Description</label>
                       <textarea
                         rows={2}
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         placeholder="Describe the filigree, karigari, or bridal heirloom qualities..."
-                        className="w-full p-3 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs outline-none"
+                        className="w-full p-3 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="btn-luxury-gold w-full py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-4"
+                      className="btn-luxury-gold w-full py-3.5 rounded-full text-xs font-cinzel font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-4"
                     >
-                      <PlusCircle className="w-4 h-4 text-[#041A15]" />
+                      <PlusCircle className="w-4 h-4 text-[#08090A]" />
                       <span>Publish Masterwork to Live Catalog</span>
                     </button>
 
@@ -645,8 +641,8 @@ export const AdminModal: React.FC = () => {
               {/* TAB 4: VIP Appointments Manager */}
               {activeTab === 'appointments' && (
                 <div className="space-y-4">
-                  <div className="border-b border-[#D4AF37]/20 pb-3">
-                    <h4 className="font-royal text-xl font-bold text-white">VIP Bridal & Video Appointments</h4>
+                  <div className="border-b border-white/10 pb-3">
+                    <h4 className="font-cinzel text-lg font-bold text-white">VIP Bridal & Video Appointments</h4>
                     <p className="text-xs text-neutral-400">
                       Customer bookings received from the website VIP reservation system.
                     </p>
@@ -661,22 +657,22 @@ export const AdminModal: React.FC = () => {
                       {appointments.map((apt) => (
                         <div
                           key={apt.id}
-                          className="p-4 rounded-2xl bg-[#07261F] border border-[#D4AF37]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                          className="p-4 rounded-2xl bg-[#0D0E11] border border-[#C5A880]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                         >
                           <div className="space-y-1">
                             <div className="flex items-center gap-2">
                               <span className="font-bold text-white text-sm">{apt.customerName}</span>
-                              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4AF37]/20 text-[#FFF3B0] font-semibold">
+                              <span className="text-[9px] font-cinzel px-2 py-0.5 rounded-full bg-[#C5A880]/20 text-[#FFF3B0] font-semibold">
                                 {apt.experienceType}
                               </span>
-                              <span className={`text-[10px] px-2 py-0.5 rounded-full ${
-                                apt.status === 'Confirmed' ? 'bg-emerald-900/60 text-emerald-300' : 'bg-neutral-800 text-neutral-300'
+                              <span className={`text-[9px] px-2 py-0.5 rounded-full ${
+                                apt.status === 'Confirmed' ? 'bg-emerald-950 text-emerald-300' : 'bg-neutral-800 text-neutral-300'
                               }`}>
                                 {apt.status}
                               </span>
                             </div>
 
-                            <div className="text-xs text-neutral-300 font-mono flex flex-wrap items-center gap-3">
+                            <div className="text-xs text-neutral-400 font-mono flex flex-wrap items-center gap-3">
                               <span>📅 {apt.date}</span>
                               <span>⏰ {apt.timeSlot}</span>
                               <span>📞 {apt.phone}</span>
@@ -696,7 +692,7 @@ export const AdminModal: React.FC = () => {
                                 const msg = `Hello ${apt.customerName}, this is the Concierge at ${settings.showroomName}. We have confirmed your ${apt.experienceType} for ${apt.date} (${apt.timeSlot}). We look forward to welcoming you!`;
                                 window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
                               }}
-                              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-1.5"
+                              className="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1.5"
                             >
                               <MessageCircle className="w-3.5 h-3.5" />
                               <span>WhatsApp</span>
@@ -709,7 +705,7 @@ export const AdminModal: React.FC = () => {
                                   apt.status === 'Confirmed' ? 'Completed' : 'Confirmed'
                                 )
                               }
-                              className="px-3 py-1.5 rounded-lg bg-black/40 hover:bg-black/60 text-neutral-300 text-xs border border-white/10"
+                              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-neutral-300 text-xs border border-white/10"
                             >
                               {apt.status === 'Confirmed' ? 'Mark Completed' : 'Reopen'}
                             </button>
@@ -724,8 +720,8 @@ export const AdminModal: React.FC = () => {
               {/* TAB 5: Showroom Info Settings */}
               {activeTab === 'settings' && (
                 <div className="max-w-xl mx-auto space-y-4">
-                  <div className="border-b border-[#D4AF37]/20 pb-3">
-                    <h4 className="font-royal text-xl font-bold text-white">Showroom & WhatsApp Configuration</h4>
+                  <div className="border-b border-white/10 pb-3">
+                    <h4 className="font-cinzel text-lg font-bold text-white">Showroom & WhatsApp Configuration</h4>
                     <p className="text-xs text-neutral-400">
                       Configure your flagship boutique address, inquiry phone number, and opening hours.
                     </p>
@@ -733,53 +729,53 @@ export const AdminModal: React.FC = () => {
 
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Showroom Title</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Maison Name</label>
                       <input
                         type="text"
                         value={settings.showroomName}
                         onChange={(e) => updateSettings({ showroomName: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">WhatsApp Inquiry Number (with country code, e.g. 919876543210)</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">WhatsApp Inquiry Number (e.g. 919876543210)</label>
                       <input
                         type="text"
                         value={settings.whatsapp}
                         onChange={(e) => updateSettings({ whatsapp: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs font-mono outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs font-mono outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Showroom Address</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Boutique Address</label>
                       <input
                         type="text"
                         value={settings.address}
                         onChange={(e) => updateSettings({ address: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Opening Hours</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Opening Hours</label>
                       <input
                         type="text"
                         value={settings.hours}
                         onChange={(e) => updateSettings({ hours: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#FFF3B0] mb-1">Director Admin PIN (Default: 1234)</label>
+                      <label className="block text-xs font-cinzel text-[#FFF3B0] mb-1">Director Admin PIN (Default: 1234)</label>
                       <input
                         type="password"
                         maxLength={6}
                         value={settings.adminPin}
                         onChange={(e) => updateSettings({ adminPin: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-black/40 border border-[#D4AF37]/30 text-white text-xs font-mono outline-none"
+                        className="w-full px-3 py-2 rounded-xl bg-[#14171A] border border-[#C5A880]/30 text-white text-xs font-mono outline-none"
                       />
                     </div>
                   </div>
@@ -795,4 +791,3 @@ export const AdminModal: React.FC = () => {
     </div>
   );
 };
-
